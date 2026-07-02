@@ -53,7 +53,7 @@ public class CallsController(IMediator mediator, ISettingsService settings) : Co
     public async Task<ContentResult> GetIceServers(CancellationToken ct)
     {
         var json = await settings.GetAsync(SettingKeys.StunTurnServers, ct)
-            ?? """[{"urls":"stun:stun.l.google.com:19302"}]""";
+            ?? @"[{""urls"":""stun:stun.l.google.com:19302""}]";
         return Content(json, "application/json");
     }
 }

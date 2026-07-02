@@ -119,20 +119,20 @@ public static class SeedData
             ("hero.subtitle", "مکالمهٔ تصویری زنده با ترجمهٔ صوتی بلادرنگ مبتنی بر هوش مصنوعی — مانع زبانی را برای همیشه فراموش کنید."),
             ("hero.cta", "شروع رایگان"),
             ("features.title", "امکانات SmartCall"),
-            ("features.items", """[
-                {"icon":"video","title":"تماس تصویری باکیفیت","text":"مکالمهٔ تصویری دونفره با کیفیت و پایداری بالا، روی موبایل و دسکتاپ."},
-                {"icon":"languages","title":"ترجمهٔ صوتی بلادرنگ","text":"صدای طرف مقابل را به زبان انتخابی خودتان بشنوید؛ هر طرف مستقل زبان خودش را انتخاب می‌کند."},
-                {"icon":"monitor-up","title":"اشتراک‌گذاری صفحه","text":"صفحهٔ خود را در حین مکالمه به اشتراک بگذارید."},
-                {"icon":"disc","title":"ضبط مکالمه","text":"تماس‌ها را ضبط و بعداً مرور کنید."},
-                {"icon":"sliders-horizontal","title":"کنترل کامل صدا","text":"بلندی صدای اصلی و صدای ترجمه‌شده را جداگانه تنظیم کنید."},
-                {"icon":"shield-check","title":"امن و خصوصی","text":"ارتباط رمزنگاری‌شده و مدیریت متمرکز از پنل ادمین."}
-            ]"""),
+            ("features.items", @"                [
+                {""icon"":""video"",""title"":""تماس تصویری باکیفیت"",""text"":""مکالمهٔ تصویری دونفره با کیفیت و پایداری بالا، روی موبایل و دسکتاپ.""},
+                {""icon"":""languages"",""title"":""ترجمهٔ صوتی بلادرنگ"",""text"":""صدای طرف مقابل را به زبان انتخابی خودتان بشنوید؛ هر طرف مستقل زبان خودش را انتخاب می‌کند.""},
+                {""icon"":""monitor-up"",""title"":""اشتراک‌گذاری صفحه"",""text"":""صفحهٔ خود را در حین مکالمه به اشتراک بگذارید.""},
+                {""icon"":""disc"",""title"":""ضبط مکالمه"",""text"":""تماس‌ها را ضبط و بعداً مرور کنید.""},
+                {""icon"":""sliders-horizontal"",""title"":""کنترل کامل صدا"",""text"":""بلندی صدای اصلی و صدای ترجمه‌شده را جداگانه تنظیم کنید.""},
+                {""icon"":""shield-check"",""title"":""امن و خصوصی"",""text"":""ارتباط رمزنگاری‌شده و مدیریت متمرکز از پنل ادمین.""}
+            ]"),
             ("how.title", "چطور کار می‌کند؟"),
-            ("how.items", """[
-                {"step":1,"title":"مکالمه بسازید","text":"وارد شوید و با یک کلیک لینک دعوت بسازید."},
-                {"step":2,"title":"لینک را بفرستید","text":"طرف مقابل بدون نصب برنامه از مرورگر وارد می‌شود."},
-                {"step":3,"title":"ترجمه را شروع کنید","text":"زبان دلخواه را انتخاب و روی «شروع ترجمه» بزنید."}
-            ]"""),
+            ("how.items", @"                [
+                {""step"":1,""title"":""مکالمه بسازید"",""text"":""وارد شوید و با یک کلیک لینک دعوت بسازید.""},
+                {""step"":2,""title"":""لینک را بفرستید"",""text"":""طرف مقابل بدون نصب برنامه از مرورگر وارد می‌شود.""},
+                {""step"":3,""title"":""ترجمه را شروع کنید"",""text"":""زبان دلخواه را انتخاب و روی «شروع ترجمه» بزنید.""}
+            ]"),
             ("cta.title", "همین حالا اولین مکالمهٔ بدون مرز خود را شروع کنید"),
             ("cta.button", "ساخت حساب کاربری"),
             ("footer.contact", "تماس با ما: info@smartcall.example"),
@@ -144,20 +144,20 @@ public static class SeedData
             ("hero.subtitle", "Live video calls with real-time AI voice translation — forget the language barrier forever."),
             ("hero.cta", "Start for free"),
             ("features.title", "SmartCall features"),
-            ("features.items", """[
-                {"icon":"video","title":"High-quality video calls","text":"Stable 1:1 video calls on mobile and desktop."},
-                {"icon":"languages","title":"Real-time voice translation","text":"Hear the other side in the language you choose; each side picks independently."},
-                {"icon":"monitor-up","title":"Screen sharing","text":"Share your screen during the call."},
-                {"icon":"disc","title":"Call recording","text":"Record calls and review them later."},
-                {"icon":"sliders-horizontal","title":"Full audio control","text":"Adjust original and translated voice volumes separately."},
-                {"icon":"shield-check","title":"Secure & private","text":"Encrypted communication with centralized admin management."}
-            ]"""),
+            ("features.items", @"                [
+                {""icon"":""video"",""title"":""High-quality video calls"",""text"":""Stable 1:1 video calls on mobile and desktop.""},
+                {""icon"":""languages"",""title"":""Real-time voice translation"",""text"":""Hear the other side in the language you choose; each side picks independently.""},
+                {""icon"":""monitor-up"",""title"":""Screen sharing"",""text"":""Share your screen during the call.""},
+                {""icon"":""disc"",""title"":""Call recording"",""text"":""Record calls and review them later.""},
+                {""icon"":""sliders-horizontal"",""title"":""Full audio control"",""text"":""Adjust original and translated voice volumes separately.""},
+                {""icon"":""shield-check"",""title"":""Secure & private"",""text"":""Encrypted communication with centralized admin management.""}
+            ]"),
             ("how.title", "How it works"),
-            ("how.items", """[
-                {"step":1,"title":"Create a call","text":"Log in and generate an invite link in one click."},
-                {"step":2,"title":"Send the link","text":"The other side joins from the browser, no install needed."},
-                {"step":3,"title":"Start translating","text":"Pick your language and hit “Start translation”."}
-            ]"""),
+            ("how.items", @"                [
+                {""step"":1,""title"":""Create a call"",""text"":""Log in and generate an invite link in one click.""},
+                {""step"":2,""title"":""Send the link"",""text"":""The other side joins from the browser, no install needed.""},
+                {""step"":3,""title"":""Start translating"",""text"":""Pick your language and hit “Start translation”.""}
+            ]"),
             ("cta.title", "Start your first borderless conversation now"),
             ("cta.button", "Create an account"),
             ("footer.contact", "Contact us: info@smartcall.example"),
@@ -173,7 +173,7 @@ public static class SeedData
         new() { Key = SettingKeys.ActiveTranslationMethod, Value = "cascade" },
         new() { Key = SettingKeys.DefaultDashboardLanguage, Value = "fa" },
         new() { Key = SettingKeys.AllowUserLanguageSwitch, Value = "true" },
-        new() { Key = SettingKeys.StunTurnServers, Value = """[{"urls":"stun:stun.l.google.com:19302"}]""" },
+        new() { Key = SettingKeys.StunTurnServers, Value = @"[{""urls"":""stun:stun.l.google.com:19302""}]" },
         // Model names are intentionally left empty — the super admin sets them
         // in the panel; they are never hardcoded.
         new() { Key = SettingKeys.OpenAiSttModel, Value = "" },

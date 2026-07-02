@@ -26,11 +26,9 @@ public class ForgotPasswordCommandHandler(IAppDbContext db, IEmailService email)
         await db.SaveChangesAsync(ct);
 
         var link = $"{request.ResetUrlBase.TrimEnd('/')}/reset-password?token={user.PasswordResetToken}&email={Uri.EscapeDataString(user.Email)}";
-        var body = $"""
-            <p>برای بازنشانی گذرواژهٔ حساب SmartCall خود روی پیوند زیر کلیک کنید (تا ۲ ساعت معتبر است):</p>
+        var body = $@"            <p>برای بازنشانی گذرواژهٔ حساب SmartCall خود روی پیوند زیر کلیک کنید (تا ۲ ساعت معتبر است):</p>
             <p>To reset your SmartCall password, click the link below (valid for 2 hours):</p>
-            <p><a href="{link}">{link}</a></p>
-            """;
+            <p><a href=""{link}"">{link}</a></p>";
         await email.SendAsync(user.Email, "SmartCall — بازنشانی گذرواژه / Password reset", body, ct);
     }
 }

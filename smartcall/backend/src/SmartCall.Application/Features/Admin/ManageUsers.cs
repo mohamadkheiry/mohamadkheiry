@@ -63,19 +63,49 @@ public class GetTokenUsageReportQueryHandler(IAppDbContext db)
 
         var systemTotal = await logs.SumAsync(l => (long?)l.TotalTokens, ct) ?? 0;
 
-        var byUser = await logs
-            .GroupBy(l => new { l.UserId, Email = l.User != null ? l.User.Email : null })
-            .Select(g => new TokenUsageByUserDto(
-                g.Key.UserId, g.Key.Email,
-                g.Sum(l => l.InputTokens), g.Sum(l => l.OutputTokens), g.Sum(l => l.TotalTokens)))
-            .OrderByDescending(x => x.TotalTokens)
+        // Group by scalar keys only (navigation properties inside a GroupBy
+        // key are not translatable); resolve display names afterwards.
+        var byUserRaw = await logs
+            .GroupBy(l => l.UserId)
+            .Select(g => new
+            {
+                UserId = g.Key,
+                Input = g.Sum(l => l.InputTokens),
+                Output = g.Sum(l => l.OutputTokens),
+                Total = g.Sum(l => l.TotalTokens)
+            })
+            .OrderByDescending(x => x.Total)
             .ToListAsync(ct);
 
-        var byCall = await logs
-            .GroupBy(l => new { l.CallId, LinkCode = l.Call != null ? l.Call.LinkCode : null })
-            .Select(g => new TokenUsageByCallDto(g.Key.CallId, g.Key.LinkCode, g.Sum(l => l.TotalTokens)))
-            .OrderByDescending(x => x.TotalTokens)
+        var userIds = byUserRaw.Where(x => x.UserId.HasValue).Select(x => x.UserId!.Value).ToList();
+        var emails = await db.Users.AsNoTracking()
+            .Where(u => userIds.Contains(u.Id))
+            .ToDictionaryAsync(u => u.Id, u => u.Email, ct);
+
+        var byUser = byUserRaw
+            .Select(x => new TokenUsageByUserDto(
+                x.UserId,
+                x.UserId.HasValue && emails.TryGetValue(x.UserId.Value, out var email) ? email : null,
+                x.Input, x.Output, x.Total))
+            .ToList();
+
+        var byCallRaw = await logs
+            .GroupBy(l => l.CallId)
+            .Select(g => new { CallId = g.Key, Total = g.Sum(l => l.TotalTokens) })
+            .OrderByDescending(x => x.Total)
             .ToListAsync(ct);
+
+        var callIds = byCallRaw.Where(x => x.CallId.HasValue).Select(x => x.CallId!.Value).ToList();
+        var linkCodes = await db.Calls.AsNoTracking()
+            .Where(c => callIds.Contains(c.Id))
+            .ToDictionaryAsync(c => c.Id, c => c.LinkCode, ct);
+
+        var byCall = byCallRaw
+            .Select(x => new TokenUsageByCallDto(
+                x.CallId,
+                x.CallId.HasValue && linkCodes.TryGetValue(x.CallId.Value, out var code) ? code : null,
+                x.Total))
+            .ToList();
 
         return new TokenUsageReportDto(systemTotal, byUser, byCall);
     }

@@ -18,10 +18,13 @@ public static class DependencyInjection
         services.AddDbContext<AppDbContext>(options =>
         {
             // Environment/config connection string wins; otherwise the one
-            // persisted by the install wizard is used.
-            var connectionString = configuration.GetConnectionString("Default")
-                ?? installationState.ConnectionString;
-            if (!string.IsNullOrEmpty(connectionString))
+            // persisted by the install wizard is used. An empty config value
+            // counts as "not set" so the wizard's choice takes effect without
+            // a restart.
+            var connectionString = configuration.GetConnectionString("Default");
+            if (string.IsNullOrWhiteSpace(connectionString))
+                connectionString = installationState.ConnectionString;
+            if (!string.IsNullOrWhiteSpace(connectionString))
                 options.UseNpgsql(connectionString);
         });
 
