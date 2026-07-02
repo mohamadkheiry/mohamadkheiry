@@ -13,3 +13,4 @@ dist/
 # Recordings / uploads
 backend/src/SmartCall.Api/storage/
 *.log
+*.tsbuildinfo
